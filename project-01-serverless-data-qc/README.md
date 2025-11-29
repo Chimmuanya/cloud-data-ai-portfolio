@@ -1,34 +1,73 @@
-# project-01-serverless-data-qc
-Short description (1-2 lines).
+# Project 01 — Serverless Data Quality Pipeline (S3 → Lambda → QC Report)
+
+## Summary
+A lightweight, production-like serverless pipeline that validates CSV uploads to S3, generates a QC report (JSON), and writes the report back to S3. Demonstrates serverless design, testable validation logic, and least-privilege cloud deployment.
 
 ## Business problem
-- Who uses it:
-- Pain point:
-- Why it matters:
+Uploading inconsistent CSVs breaks downstream analytics. This pipeline automates checks and emits a structured QC report so analysts get clean inputs and engineering can triage issues.
 
-## Architecture overview
-Add a draw.io diagram in `project-01-serverless-data-qc/diagrams/` and exported PNG in `project-01-serverless-data-qc/diagrams/exported/`.
+## Objectives (MVP)
+- Validate CSV schema (required columns, types).
+- Detect nulls, out-of-range ages, invalid dates.
+- Produce human + machine-readable QC JSON and store in S3.
+- Local dev: run validations locally and simulate S3 event.
+- Deployment: SAM template to deploy Lambda + S3 trigger with least-privilege IAM.
 
-## Tech stack
-- Python / Pandas / Scikit-learn
-- AWS: S3, Lambda, CloudWatch (as relevant)
-- Streamlit (dashboards)
-- Local AI tools (for document extraction)
-
-## How to run (local/dev)
-1. Create and activate a virtualenv: `python -m venv .venv && source .venv/bin/activate`
-2. `pip install -r requirements.txt` (create as you implement)
-3. `python src/main.py` or run the Streamlit app.
+## What this demonstrates
+- Serverless ETL fundamentals (event-driven S3 → Lambda).
+- Testable validator functions.
+- Infrastructure-as-code (SAM/CloudFormation).
+- Dev workflow: atomic commits, CI-friendly tests, diagram-first design.
 
 ## Folder layout
-- src/: implementation
-- tests/: unit tests
-- diagrams/: canonical drawio XML
-- diagrams/exported/: PNG/SVG outputs for portfolio
+project-01-serverless-data-qc/
+├── src/
+│ ├── handler.py
+│ ├── validator.py
+│ └── utils.py
+├── tests/
+│ └── test_validator.py
+├── samples/
+│ ├── good.csv
+│ └── bad_missing.csv
+├── requirements.txt
+├── template.yaml
+├── iam_policy.json
+├── diagrams/
+│ └── architecture.drawio
+└── scripts/
+└── local_invoke.py
 
-## Deliverables (what to include in portfolio)
-- Architecture diagram (draw.io)
-- Screenshots / demo GIFs
-- README (problem → solution → impact)
-- Deploy scripts (CloudFormation/Terraform) where available
 
+## Quick dev steps (local)
+1. Create virtualenv & install deps:
+\`\`\`bash
+#!/bin/bash
+python -m venv .venv`
+source .venv/bin/activate
+pip install -r requirements.txt
+\`\`\`
+
+2. Run tests:
+\`\`\`bash
+#!/bin/bash
+pytest -q
+\`\`\`
+
+3. Simulate S3 event locally:
+\`\`\`bash
+#!/bin/bash
+python scripts/local_invoke.py samples/good.csv
+\`\`\`
+
+4. Deploy with AWS SAM (optional):
+\`\`\`bash
+sam build
+sam deploy --guided
+\`\`\`
+
+
+## Next improvements
+- Add JSON Schema-based ruleset for validation config.
+- Add Athena integration for aggregated QC metrics.
+- Add SNS alerting for critical failures.

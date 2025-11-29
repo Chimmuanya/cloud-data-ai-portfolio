@@ -1,0 +1,43 @@
+AWSTemplateFormatVersion: '2010-09-09' # Standard required header for all AWS CloudFormation templates.
+Transform: AWS::Serverless-2016-10-31 # Tells CloudFormation to use the AWS Serverless Application Model (SAM) syntax.
+Description: Serverless Data QC Pipeline # A brief description of what this template deploys.
+
+Resources: # This section lists all the AWS services and components to be created.
+  DataQcLambda: # Logical name for our main function: the Data Quality Checker.
+    Type: AWS::Serverless::Function # Defines this resource as an AWS Lambda function via the SAM framework.
+    Properties:
+      FunctionName: data-qc-lambda # Sets a friendly, fixed name for the Lambda function.
+      Handler: src.handler.handler # Specifies the entry point: 'handler' function inside the 'handler.py' file within the 'src' folder.
+      Runtime: python3.10 # Specifies the programming language environment for the function.
+      Timeout: 30 # Sets the maximum time (in seconds) the function is allowed to run before being stopped.
+      MemorySize: 256 # Sets the amount of memory (in MB) allocated to the function.
+      Policies: # Defines the security permissions (IAM policy) required by the Lambda function.
+        - Statement: # Start of the custom permissions statement.
+            - Effect: Allow # Specifies that these permissions are granted (allowed).
+              Action: # List of specific actions the function is allowed to perform.
+                - s3:GetObject # Allows the Lambda to read the input data from S3.
+                - s3:PutObject # Allows the Lambda to write the output/report back to S3.
+              Resource: # Specifies which resources the above actions apply to.
+                # !Sub is a CloudFormation intrinsic function for substituting variables.
+                # It grants access to ALL files (*) inside the InputBucket.
+                - !Sub arn:aws:s3:::${InputBucket}/*
+      Environment: # Allows setting environment variables for the Lambda function.
+        Variables:
+          # add env variables if needed
+          DYNAMODB_TABLE: !Ref DynamoDBTable # Example: you could reference another resource here.
+      Events: # Defines the triggers that will make this Lambda function run.
+        S3PutEvent: # Logical name for this specific trigger (e.g., when a file is uploaded).
+          Type: S3 # Specifies the event source is AWS S3.
+          Properties:
+            Bucket: !Ref InputBucket # Refers to the S3 bucket defined below (InputBucket resource).
+            Events: s3:ObjectCreated:Put # The exact S3 event that triggers the Lambda (when a new file is uploaded).
+
+  InputBucket: # Logical name for the S3 bucket resource.
+    Type: AWS::S3::Bucket # Defines this resource as a standard AWS S3 bucket.
+    Properties:
+      # Sets the bucket name, using the Sub function to prepend the AWS account ID for uniqueness.
+      BucketName: !Sub ${AWS::AccountId}-data-qc-input
+
+Outputs: # This section defines values that are useful to display after deployment.
+  LambdaArn: # Logical name for the output value.
+    Value: !GetAtt DataQcLambda.Arn # Retrieves the Amazon Resource Name (ARN) of the deployed Lambda function.
