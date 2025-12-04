@@ -1,0 +1,28 @@
+{
+  "Version":"2012-10-17",
+  "Statement":[
+    {
+      "Sid":"ScopedStackChangeSetOps",
+      "Effect":"Allow",
+      "Action":[
+        "cloudformation:CreateChangeSet","cloudformation:DescribeChangeSet","cloudformation:ExecuteChangeSet",
+        "cloudformation:CreateStack","cloudformation:UpdateStack","cloudformation:DeleteStack",
+        "cloudformation:DescribeStacks","cloudformation:GetTemplate","cloudformation:GetTemplateSummary",
+        "cloudformation:ValidateTemplate","cloudformation:ListStacks","cloudformation:ListStackResources"
+      ],
+      "Resource":"arn:aws:cloudformation:${REGION}:${ACCOUNT}:stack/project1-data-qc/*"
+    },
+    {
+      "Sid":"AllowServerlessTransformChangeSet",
+      "Effect":"Allow",
+      "Action":["cloudformation:CreateChangeSet","cloudformation:DescribeChangeSet","cloudformation:ExecuteChangeSet"],
+      "Resource":"arn:aws:cloudformation:${REGION}:aws:transform/Serverless-2016-10-31"
+    },
+    {
+      "Sid":"CFNReadGlobalHelpers",
+      "Effect":"Allow",
+      "Action":["cloudformation:DescribeStackEvents","cloudformation:ListStackResources"],
+      "Resource":"*"
+    }
+  ]
+}
