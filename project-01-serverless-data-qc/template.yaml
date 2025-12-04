@@ -5,7 +5,7 @@ Description: Serverless Data QC Pipeline (S3 -> Lambda -> reports/ prefix)
 Parameters:
   InputBucketName:
     Type: String
-    Description: "Name of the S3 bucket to receive CSVs (existing or to be created outside this template)"
+    Description: "Name of the existing S3 bucket used as input"
 
 Globals:
   Function:
@@ -27,8 +27,8 @@ Resources:
         Variables:
           BUCKET_NAME: !Ref InputBucketName
       Policies:
-        - AWSLambdaBasicExecutionRole            # ensures CloudWatch Logs permissions
-        - Version: "2012-10-17"                  # inline policy block to scope S3 access
+        - AWSLambdaBasicExecutionRole
+        - Version: "2012-10-17"
           Statement:
             - Effect: Allow
               Action:
@@ -39,17 +39,10 @@ Resources:
                 - !Sub arn:aws:s3:::${InputBucketName}
                 - !Sub arn:aws:s3:::${InputBucketName}/*
 
-      Events:
-        CsvUpload:
-          Type: S3
-          Properties:
-            Bucket: !Ref InputBucketName
-            Events: s3:ObjectCreated:Put
-
 Outputs:
   DataQcLambdaArn:
     Description: "ARN of the Data QC Lambda"
     Value: !GetAtt DataQcLambda.Arn
-  InputBucketNameOut:
-    Description: "Input bucket name"
-    Value: !Ref InputBucketName
+  DataQcLambdaName:
+    Description: "Name of the Data QC Lambda"
+    Value: !Ref DataQcLambda
