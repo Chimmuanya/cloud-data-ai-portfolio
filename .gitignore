@@ -1,3 +1,18 @@
+# AWS SAM build artifacts
+.aws-sam/
+
+# Python virtual environments
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+
+# Local evidence & logs (optional)
+evidence/
+screenshots/
+
+
 # Python
 __pycache__/
 *.pyc
@@ -23,3 +38,4 @@ secrets/
 aws_credentials/
 # exported diagrams (we still want committed final PNGs but avoid intermediate temp files)
 **/diagrams/exported/*.tmp.png
+.aws-sam/
