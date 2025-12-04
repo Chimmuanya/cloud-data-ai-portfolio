@@ -1,20 +1,56 @@
 {
-  "Version":"2012-10-17",
-  "Statement":[
+  "Version": "2012-10-17",
+  "Statement": [
     {
-      "Sid":"LambdaCreateUpdateScoped",
-      "Effect":"Allow",
-      "Action":[
-        "lambda:CreateFunction","lambda:DeleteFunction","lambda:GetFunction","lambda:UpdateFunctionCode",
-        "lambda:UpdateFunctionConfiguration","lambda:PublishVersion","lambda:GetFunctionConfiguration"
+      "Sid": "LambdaLifecycle",
+      "Effect": "Allow",
+      "Action": [
+        "lambda:CreateFunction",
+        "lambda:DeleteFunction",
+        "lambda:GetFunction",
+        "lambda:UpdateFunctionCode",
+        "lambda:UpdateFunctionConfiguration",
+        "lambda:AddPermission",
+        "lambda:RemovePermission",
+        "lambda:InvokeFunction",
+        "lambda:GetFunctionConfiguration",
+        "lambda:TagResource"
       ],
-      "Resource":["arn:aws:lambda:${REGION}:${ACCOUNT}:function:data-qc-lambda-*"]
+      "Resource": [
+        "arn:aws:lambda:eu-west-1:508012525512:function:data-qc-lambda-*",
+        "arn:aws:lambda:eu-west-1:508012525512:function:project1-data-qc*"
+      ]
     },
     {
-      "Sid":"LambdaPermissionsAndTagging",
-      "Effect":"Allow",
-      "Action":["lambda:AddPermission","lambda:RemovePermission","lambda:TagResource","lambda:UntagResource"],
-      "Resource":["arn:aws:lambda:${REGION}:${ACCOUNT}:function:data-qc-lambda-*"]
+      "Sid": "IAMRoleLifecycleScoped",
+      "Effect": "Allow",
+      "Action": [
+        "iam:CreateRole",
+        "iam:DeleteRole",
+        "iam:GetRole",
+        "iam:PassRole",
+        "iam:AttachRolePolicy",
+        "iam:DetachRolePolicy",
+        "iam:PutRolePolicy",
+        "iam:DeleteRolePolicy",
+        "iam:ListRolePolicies",
+        "iam:ListAttachedRolePolicies",
+        "iam:GetRolePolicy",
+        "iam:TagRole",
+        "iam:UntagRole"
+      ],
+      "Resource": [
+        "arn:aws:iam::508012525512:role/project1-data-qc-*"
+      ]
+    },
+    {
+      "Sid": "IAMReadForRoles",
+      "Effect": "Allow",
+      "Action": [
+        "iam:GetRole",
+        "iam:ListRoles"
+      ],
+      "Resource": "*"
     }
   ]
 }
