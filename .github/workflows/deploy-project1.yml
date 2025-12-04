@@ -1,0 +1,66 @@
+name: Deploy Project 1 (Serverless QC Pipeline)
+
+on:
+  push:
+    branches: [ "main" ]
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials (OIDC Assume Role)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::508012525512:role/ci-deploy-project1-role
+          aws-region: eu-west-1
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install SAM CLI
+        run: |
+          python -m pip install --upgrade pip
+          pip install aws-sam-cli
+
+      - name: Build SAM application
+        working-directory: project-01-serverless-data-qc
+        run: |
+          sam build
+
+      # Use repository secrets so CI is portable
+      - name: Deploy SAM stack (non-interactive)
+        working-directory: project-01-serverless-data-qc
+        env:
+          PACKAGING_BUCKET: ${{ secrets.PACKAGING_BUCKET }}
+          INPUT_BUCKET: ${{ secrets.INPUT_BUCKET }}
+        run: |
+          # ensure PACKAGING_BUCKET is present
+          if [ -z "${PACKAGING_BUCKET}" ]; then
+            echo "ERROR: PACKAGING_BUCKET secret is empty"
+            exit 1
+          fi
+          if [ -z "${INPUT_BUCKET}" ]; then
+            echo "ERROR: INPUT_BUCKET secret is empty"
+            exit 1
+          fi
+
+          # Deploy using explicit s3-bucket to avoid SAM helper stack quirks
+          sam deploy \
+            --stack-name project1-data-qc \
+            --s3-bucket "${PACKAGING_BUCKET}" \
+            --parameter-overrides InputBucketName="${INPUT_BUCKET}" \
+            --region eu-west-1 \
+            --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM \
+            --no-confirm-changeset \
+            --no-fail-on-empty-changeset
