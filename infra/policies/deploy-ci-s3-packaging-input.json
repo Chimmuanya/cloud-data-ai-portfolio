@@ -13,7 +13,8 @@
         "s3:GetObjectVersion"
       ],
       "Resource": [
-        "arn:aws:s3:::cmogbo-sam-pkg-1764511935/*"
+        "arn:aws:s3:::cmogbo-sam-pkg-1764511935/*",
+        "arn:aws:s3:::508012525512-data-qc-input"
       ]
     },
     {
@@ -24,7 +25,8 @@
         "s3:GetBucketLocation"
       ],
       "Resource": [
-        "arn:aws:s3:::cmogbo-sam-pkg-1764511935"
+        "arn:aws:s3:::cmogbo-sam-pkg-1764511935",
+        "arn:aws:s3:::508012525512-data-qc-input"
       ]
     },
     {
