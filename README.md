@@ -1,4 +1,4 @@
-# 🌍 Cloud + Data + AI Portfolio (7 Projects)
+# Cloud + Data + Portfolio (7 Projects)
 
 This monorepo contains seven industry-agnostic, high-value portfolio projects demonstrating cloud engineering, data engineering, automation, ML, and agentic workflows.
 
@@ -19,3 +19,4 @@ Each project lives in `project-0X-.../` and contains `src/`, `diagrams/`, `READM
 1. Fill project READMEs (templates are already present).
 2. Implement code incrementally with small atomic commits.
 3. Add diagrams using draw.io and export PNG/SVG to `diagrams/exported/`.
+
