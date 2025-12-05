@@ -1,0 +1,49 @@
+{
+    "Stacks": [
+        {
+            "StackId": "arn:aws:cloudformation:eu-west-1:508012525512:stack/project1-data-qc/f47dd7d0-d167-11f0-984a-02b2264cd14b",
+            "StackName": "project1-data-qc",
+            "ChangeSetId": "arn:aws:cloudformation:eu-west-1:508012525512:changeSet/samcli-deploy1764890485/daf44659-241a-4719-80bb-df86f7cc7f0a",
+            "Description": "Serverless Data QC Pipeline (S3 -> Lambda -> reports/ prefix)",
+            "Parameters": [
+                {
+                    "ParameterKey": "InputBucketName",
+                    "ParameterValue": "508012525512-data-qc-input"
+                }
+            ],
+            "CreationTime": "2025-12-04T23:21:26.315000+00:00",
+            "LastUpdatedTime": "2025-12-04T23:21:32.542000+00:00",
+            "RollbackConfiguration": {},
+            "StackStatus": "CREATE_COMPLETE",
+            "DisableRollback": false,
+            "NotificationARNs": [],
+            "Capabilities": [
+                "CAPABILITY_IAM",
+                "CAPABILITY_NAMED_IAM"
+            ],
+            "Outputs": [
+                {
+                    "OutputKey": "DataQcLambdaName",
+                    "OutputValue": "data-qc-lambda-project1-data-qc",
+                    "Description": "Name of the Data QC Lambda"
+                },
+                {
+                    "OutputKey": "DataQcLambdaArn",
+                    "OutputValue": "arn:aws:lambda:eu-west-1:508012525512:function:data-qc-lambda-project1-data-qc",
+                    "Description": "ARN of the Data QC Lambda"
+                }
+            ],
+            "Tags": [],
+            "EnableTerminationProtection": false,
+            "DriftInformation": {
+                "StackDriftStatus": "NOT_CHECKED"
+            },
+            "LastOperations": [
+                {
+                    "OperationType": "CREATE_STACK",
+                    "OperationId": "e443a85b-fc62-420b-bfc5-5d6406c0ca70"
+                }
+            ]
+        }
+    ]
+}

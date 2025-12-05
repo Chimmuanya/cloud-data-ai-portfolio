@@ -1,0 +1,55 @@
+{
+    "logStreams": [
+        {
+            "logStreamName": "2025/12/05/[$LATEST]1553e462f1de4e3aa00ffc1d8697c8b1",
+            "creationTime": 1764927380450,
+            "firstEventTimestamp": 1764927372803,
+            "lastEventTimestamp": 1764927379374,
+            "lastIngestionTime": 1764927380458,
+            "uploadSequenceToken": "49039859653699328099576217809730332896513308643791823026",
+            "arn": "arn:aws:logs:eu-west-1:508012525512:log-group:/aws/lambda/data-qc-lambda-project1-data-qc:log-stream:2025/12/05/[$LATEST]1553e462f1de4e3aa00ffc1d8697c8b1",
+            "storedBytes": 0
+        },
+        {
+            "logStreamName": "2025/12/05/[$LATEST]60df2c85ed0c48c59323e598fc151952",
+            "creationTime": 1764927375199,
+            "firstEventTimestamp": 1764927371966,
+            "lastEventTimestamp": 1764927375996,
+            "lastIngestionTime": 1764927384314,
+            "uploadSequenceToken": "49039859653699333225079369556365939920109747131221893172",
+            "arn": "arn:aws:logs:eu-west-1:508012525512:log-group:/aws/lambda/data-qc-lambda-project1-data-qc:log-stream:2025/12/05/[$LATEST]60df2c85ed0c48c59323e598fc151952",
+            "storedBytes": 0
+        },
+        {
+            "logStreamName": "2025/12/05/[$LATEST]2b7233c730494fe4906b52c906cdfcb4",
+            "creationTime": 1764927378309,
+            "firstEventTimestamp": 1764927372635,
+            "lastEventTimestamp": 1764927375987,
+            "lastIngestionTime": 1764927378317,
+            "uploadSequenceToken": "49039859653699325253699078834225450548324370857563086934",
+            "arn": "arn:aws:logs:eu-west-1:508012525512:log-group:/aws/lambda/data-qc-lambda-project1-data-qc:log-stream:2025/12/05/[$LATEST]2b7233c730494fe4906b52c906cdfcb4",
+            "storedBytes": 0
+        },
+        {
+            "logStreamName": "2025/12/05/[$LATEST]b8f42c6a41d54a94ae403b59bfd243d1",
+            "creationTime": 1764927372336,
+            "firstEventTimestamp": 1764927371060,
+            "lastEventTimestamp": 1764927375011,
+            "lastIngestionTime": 1764927383001,
+            "uploadSequenceToken": "49039859653699331479803011090771399971949859801354821754",
+            "arn": "arn:aws:logs:eu-west-1:508012525512:log-group:/aws/lambda/data-qc-lambda-project1-data-qc:log-stream:2025/12/05/[$LATEST]b8f42c6a41d54a94ae403b59bfd243d1",
+            "storedBytes": 0
+        },
+        {
+            "logStreamName": "2025/12/05/[$LATEST]e83e4045fea542659c6414885a56b2bf",
+            "creationTime": 1764927370430,
+            "firstEventTimestamp": 1764927370181,
+            "lastEventTimestamp": 1764927374122,
+            "lastIngestionTime": 1764927382200,
+            "uploadSequenceToken": "49039859653699330415091386467053786193357989184477421748",
+            "arn": "arn:aws:logs:eu-west-1:508012525512:log-group:/aws/lambda/data-qc-lambda-project1-data-qc:log-stream:2025/12/05/[$LATEST]e83e4045fea542659c6414885a56b2bf",
+            "storedBytes": 0
+        }
+    ],
+    "NextToken": "eyJuZXh0VG9rZW4iOiBudWxsLCAiYm90b190cnVuY2F0ZV9hbW91bnQiOiA1fQ=="
+}

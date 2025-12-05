@@ -1,0 +1,9 @@
+{
+  "timestamp": "20251205T102018Z",
+  "profile": "deploy-ci",
+  "region": "eu-west-1",
+  "stack_name": "project1-data-qc",
+  "input_bucket": "508012525512-data-qc-input",
+  "lambda_name": "data-qc-lambda-project1-data-qc",
+  "max_reports": 15
+}
