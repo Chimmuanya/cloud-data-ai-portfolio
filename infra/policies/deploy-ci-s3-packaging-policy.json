@@ -13,8 +13,8 @@
         "s3:GetObjectVersion"
       ],
       "Resource": [
-        "arn:aws:s3:::cmogbo-sam-pkg-1764511935/*",
-        "arn:aws:s3:::508012525512-data-qc-input"
+        "arn:aws:s3:::${PACKAGING_BUCKET}/*",
+        "arn:aws:s3:::${INPUT_BUCKET}"
       ]
     },
     {
@@ -25,8 +25,8 @@
         "s3:GetBucketLocation"
       ],
       "Resource": [
-        "arn:aws:s3:::cmogbo-sam-pkg-1764511935",
-        "arn:aws:s3:::508012525512-data-qc-input"
+        "arn:aws:s3:::${PACKAGING_BUCKET}",
+
       ]
     },
     {
@@ -35,11 +35,16 @@
       "Action": [
         "s3:GetObject",
         "s3:ListBucket",
-        "s3:GetBucketLocation"
+        "s3:GetBucketLocation",
+        "s3:PutObject",
+        "s3:PutObjectAcl",
+        "s3:AbortMultipartUpload",
+        "s3:ListMultipartUploadParts",
+        "s3:GetObjectVersion"
       ],
       "Resource": [
-        "arn:aws:s3:::508012525512-data-qc-input",
-        "arn:aws:s3:::508012525512-data-qc-input/*"
+        "arn:aws:s3:::${INPUT_BUCKET}",
+        "arn:aws:s3:::${INPUT_BUCKET}/*"
       ]
     }
   ]

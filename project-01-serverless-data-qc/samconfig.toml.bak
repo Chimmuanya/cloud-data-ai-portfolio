@@ -1,0 +1,16 @@
+version = 0.1
+
+[default]
+[default.deploy]
+[default.deploy.parameters]
+# The keys below MUST be under [default.deploy.parameters] to be read
+profile = "deploy-ci"
+region = "eu-west-1"
+stack_name = "project1-data-qc"
+s3_bucket = ""  # valid if resolve_s3 is true
+s3_prefix = "project1-data-qc"
+capabilities = "CAPABILITY_IAM CAPABILITY_NAMED_IAM"
+parameter_overrides = "InputBucketName=508012525512-data-qc-input"
+confirm_changeset = false
+fail_on_empty_changeset = false
+resolve_s3 = true

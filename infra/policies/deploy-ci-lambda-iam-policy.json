@@ -17,8 +17,8 @@
         "lambda:TagResource"
       ],
       "Resource": [
-        "arn:aws:lambda:eu-west-1:508012525512:function:data-qc-lambda-*",
-        "arn:aws:lambda:eu-west-1:508012525512:function:project1-data-qc*"
+        "arn:aws:lambda:${AWS_REGION}:${ACCOUNT_ID}:function:data-qc-lambda-*",
+        "arn:aws:lambda:${AWS_REGION}:${ACCOUNT_ID}:function:project1-data-qc*"
       ]
     },
     {
@@ -40,7 +40,7 @@
         "iam:UntagRole"
       ],
       "Resource": [
-        "arn:aws:iam::508012525512:role/project1-data-qc-*"
+        "arn:aws:iam::${ACCOUNT_ID}:role/project1-data-qc-*"
       ]
     },
     {
