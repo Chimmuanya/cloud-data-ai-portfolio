@@ -1,0 +1,33 @@
+{
+    "Role": {
+        "Path": "/",
+        "RoleName": "project1-data-qc-DataQcLambdaRole-Kh0bBhj4IFEZ",
+        "RoleId": "AROAXMR7H67EJQAHJV2AT",
+        "Arn": "arn:aws:iam::508012525512:role/project1-data-qc-DataQcLambdaRole-Kh0bBhj4IFEZ",
+        "CreateDate": "2025-12-04T23:21:35+00:00",
+        "AssumeRolePolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": "lambda.amazonaws.com"
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        },
+        "Description": "",
+        "MaxSessionDuration": 3600,
+        "Tags": [
+            {
+                "Key": "lambda:createdBy",
+                "Value": "SAM"
+            }
+        ],
+        "RoleLastUsed": {
+            "LastUsedDate": "2025-12-05T09:36:24+00:00",
+            "Region": "eu-west-1"
+        }
+    }
+}

@@ -1,4 +1,4 @@
-#!/home/cmogbo/Documents/jupyter_test/RESEARCH_DATA_ANALYST_PORTOFOLIO/cloud-data-ai-portfolio/project-01-serverless-data-qc/.venv/bin/python3.10
+#!/home/cmogbo/Documents/jupyter_test/RESEARCH_DATA_ANALYST_PORTOFOLIO/cloud-data-ai-portfolio/project-01-serverless-data-qc/.venv/bin/python
 
 import sys
 import json

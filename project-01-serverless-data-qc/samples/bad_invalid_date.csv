@@ -1,0 +1,13 @@
+id,name,age,email,signup_date
+1,Alice1,32,user1@example.com,2020-01-02
+2,Charlie2,51,user2@example.com,2020-01-03
+3,Eve3,38,user3@example.com,2020-01-04
+4,Dana4,45,user4@example.com,2020-01-05
+5,Bob5,24,user5@example.com,2020-01-06
+6,Alice6,57,user6@example.com,06/20/2021
+7,Charlie7,30,user7@example.com,2020-01-08
+8,Eve8,42,user8@example.com,2020-01-09
+9,Dana9,55,user9@example.com,2020-01-10
+10,Bob10,21,user10@example.com,2020-01-11
+11,Alice11,48,user11@example.com,2021-99-99
+12,Charlie12,35,user12@example.com,2020-01-13
