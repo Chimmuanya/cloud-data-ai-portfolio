@@ -1,0 +1,43 @@
+{
+    "FunctionName": "data-qc-lambda-project1-data-qc",
+    "FunctionArn": "arn:aws:lambda:eu-west-1:508012525512:function:data-qc-lambda-project1-data-qc",
+    "Runtime": "python3.10",
+    "Role": "arn:aws:iam::508012525512:role/project1-data-qc-DataQcLambdaRole-Kh0bBhj4IFEZ",
+    "Handler": "src.handler.handler",
+    "CodeSize": 78315638,
+    "Description": "",
+    "Timeout": 30,
+    "MemorySize": 256,
+    "LastModified": "2025-12-04T23:21:57.953+0000",
+    "CodeSha256": "uUTcenKJkeDcpsgHBf9/J/aW5aQHhuyhPudTlhtzZHc=",
+    "Version": "$LATEST",
+    "Environment": {
+        "Variables": {
+            "BUCKET_NAME": "508012525512-data-qc-input"
+        }
+    },
+    "TracingConfig": {
+        "Mode": "PassThrough"
+    },
+    "RevisionId": "ff802b9c-a1c6-4828-942f-a39344361517",
+    "State": "Active",
+    "LastUpdateStatus": "Successful",
+    "PackageType": "Zip",
+    "Architectures": [
+        "x86_64"
+    ],
+    "EphemeralStorage": {
+        "Size": 512
+    },
+    "SnapStart": {
+        "ApplyOn": "None",
+        "OptimizationStatus": "Off"
+    },
+    "RuntimeVersionConfig": {
+        "RuntimeVersionArn": "arn:aws:lambda:eu-west-1::runtime:72dc8bb9953841a1ec971756f4d9a438aa05ee8f4f2f17ee04b3cc5cb75a4078"
+    },
+    "LoggingConfig": {
+        "LogFormat": "Text",
+        "LogGroup": "/aws/lambda/data-qc-lambda-project1-data-qc"
+    }
+}

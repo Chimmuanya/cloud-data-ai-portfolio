@@ -1,2 +1,69 @@
-project-01-serverless-data-qc/.aws-sam/
+# ===============================
+# Global ignores
+# ===============================
+.DS_Store
+Thumbs.db
+
+# ===============================
+# Python
+# ===============================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.egg-info/
+.eggs/
+.venv/
+venv/
+env/
+
+# ===============================
+# AWS SAM build artifacts
+# ===============================
 .aws-sam/
+.sam-cache/
+.aws-sam-build/
+
+# ===============================
+# Jupyter Notebooks
+# ===============================
+.ipynb_checkpoints/
+
+# ===============================
+# Logs
+# ===============================
+*.log
+logs/
+*.tmp
+*.temp
+
+# ===============================
+# Editor / IDE / OS
+# ===============================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ===============================
+# Evidence Artifacts (optional)
+# Uncomment if you DON'T want raw screenshots in git
+# evidence/**/*.png
+# evidence/**/*.jpg
+# evidence/**/*.jpeg
+# evidence/**/*.mp4
+# ===============================
+
+# ===============================
+# Byte-compiled notebooks from testing
+# ===============================
+*/.pytest_cache/
+pytestdebug.log
+
+# ===============================
+# Misc
+# ===============================
+*.bak
+*.old
+*.orig
